@@ -3,7 +3,6 @@ class BankAccount:
         self.name = name
         self.account_number = account_number
         self.balance = balance
-        pass
 
     def deposit(self, amount):
         self.balance += amount
@@ -19,3 +18,6 @@ class BankAccount:
 
     def get_balance(self):
         print(f"Your current balance is : {self.balance:.2f}")
+
+    def add_interest(self, rate):
+        interest = self.balance * rate * 0.00083
