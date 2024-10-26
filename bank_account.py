@@ -3,6 +3,7 @@ class BankAccount:
         self.name = name
         self.account_number = account_number
         self.balance = balance
+        balance = 0
 
     def deposit(self, amount):
         self.balance += amount
