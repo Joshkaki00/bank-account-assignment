@@ -17,3 +17,5 @@ class BankAccount:
             self.balance -= amount
             print(f"Amount withdrawn: ${amount:.2f} new balance: ${self.balance:.2f}")
 
+    def get_balance(self):
+        print(f"Your current balance is : {self.balance:.2f}")
