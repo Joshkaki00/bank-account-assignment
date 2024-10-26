@@ -9,8 +9,7 @@ class BankAccount:
         self.balance = balance
         balance = 0
         account_number = random.randint(00000000, 99999999)
-        
-'''
+
     def deposit(self, amount):
         self.balance += amount
         print(f"Amount deposited: ${amount:.2f} new balance: ${self.balance:.2f}")
@@ -28,4 +27,3 @@ class BankAccount:
 
     def add_interest(self, rate):
         interest = self.balance * rate * 0.00083
-'''
