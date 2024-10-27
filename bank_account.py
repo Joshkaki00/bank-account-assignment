@@ -20,6 +20,8 @@ class BankAccount:
         self.route_number = str(route_number)
         self.route_number = "0" * (8 - len(self.route_number)) + self.route_number
 
+    
+
     def deposit(self, amount):
         self.balance += amount
         print(f"Amount deposited: ${amount:.2f} new balance: ${self.balance:.2f}")
@@ -42,28 +44,35 @@ class BankAccount:
     def print_statement(self):
         print(f"{self.name}\nAccount No.: {self.account_number}\nRouting No.: {self.route_number}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
 
-john_BankAccount = BankAccount("John Augustus", 12345678, 98765432, 1000, "savings")
 
-john_BankAccount.print_statement()
 
-amy_BankAccount = BankAccount("Amy Brooke", 79598828, 12345678, 1500, "checking")
+savings_account = BankAccount("John Augustus", 12345678, 98765432, 1000, "savings")
 
-amy_BankAccount.get_balance()
+savings_account.deposit(500)
 
-james_BankAccount = BankAccount("James Mizutani", 60716208, 23456789, 3400, "savings")
+savings_account.print_statement()
 
-james_BankAccount.withdraw(3500)
+checking_account = BankAccount("Mitchell", "03141592", 34567891, 0, "checking")
 
-mitchell_BankAccount = BankAccount("Mitchell", "03141592", 34567891, 0, "checking")
+checking_account.deposit(400000)
 
-mitchell_BankAccount.deposit(400000)
+checking_account.print_statement()
 
-mitchell_BankAccount.print_statement()
+checking_account.add_interest()
 
-mitchell_BankAccount.add_interest()
+checking_account.print_statement()
 
-mitchell_BankAccount.print_statement()
+checking_account.withdraw(150)
 
-mitchell_BankAccount.withdraw(150)
+checking_account.print_statement()
 
-mitchell_BankAccount.print_statement()
+bank = [checking_account, savings_account]
+
+def apply_interest_to_all_accounts(bank):
+    for account in bank:
+        account.add_interest()
+
+apply_interest_to_all_accounts(bank)
+
+for account in bank:
+    account.print_statement()
