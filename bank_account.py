@@ -52,7 +52,8 @@ class Bank:
         self.name = name
         account = BankAccount(name, account_number, route_number, balance, account_type)
         self.accounts[account.account_number] = account
-        print(f"Account created for {name}")
+        print(f"Account created for {name} with account number {account.account_number}.")
+        return account
         
 
 
