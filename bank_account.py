@@ -47,6 +47,14 @@ class BankAccount:
     def print_statement(self):
         print(f"{self.name}\nAccount No.: {self.account_number}\nRouting No.: {self.route_number}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
 
+class Bank:
+    def __init__(self, name, account_number=None, route_number=None, balance=0.0, account_type="checking"):
+        self.name = name
+        account = BankAccount(name, account_number, route_number, balance, account_type)
+        self.accounts[account.account_number] = account
+        print(f"Account created for {name}")
+        
+
 
 def application():
     bank = {}
