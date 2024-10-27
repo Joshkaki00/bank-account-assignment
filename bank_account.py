@@ -1,7 +1,5 @@
 import random
 
-from random import randint
-
 class BankAccount:
     def __init__(self, name, account_number, route_number, balance, account_type):
         self.name = name
@@ -40,7 +38,7 @@ class BankAccount:
     def get_balance(self):
         print(f"Your current balance is : ${self.balance:.2f}")
 
-    def add_interest(self, rate=None):
+    def add_interest(self):
         interest = self.balance * self.interest_rate
         self.balance += interest
 
