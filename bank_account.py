@@ -85,7 +85,12 @@ class Bank:
         else:
             print("One or both accounts not found.")
 
-    def statement(self, account_number)
+    def statement(self, account_number):
+        account = self.accounts.get(account_number)
+        if account:
+            account.print_statement()
+        else:
+            print("Account not found.")
 
 
 def application():
