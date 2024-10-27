@@ -46,5 +46,5 @@ john_BankAccount.add_interest()
 
 john_BankAccount.print_statement()
 
-amy_BankAccount = BankAccount
+# amy_BankAccount = BankAccount
 
