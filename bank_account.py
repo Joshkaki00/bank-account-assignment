@@ -5,7 +5,6 @@ from random import randint
 class BankAccount:
     def __init__(self, name, account_number, balance):
         self.name = name
-        self.account_number = account_number
         self.balance = balance
         balance = 0
         self.account_number = str(account_number)
@@ -46,7 +45,7 @@ james_BankAccount = BankAccount("James Mizutani", 60716208, 3400)
 
 james_BankAccount.print_statement()
 
-mitchell_BankAccount = BankAccount("Mitchell", 03141592, 10000)
+mitchell_BankAccount = BankAccount("Mitchell", "03141592", 10000)
 
 mitchell_BankAccount.print_statement()
 
