@@ -52,6 +52,6 @@ mitchell_BankAccount.deposit(400000)
 '''
 mitchell_BankAccount.print_statement()
 
-mitchell_BankAccount.add_interest(self.rate)
+mitchell_BankAccount.add_interest()
 
 
