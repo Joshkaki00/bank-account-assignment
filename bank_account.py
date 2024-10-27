@@ -48,12 +48,20 @@ class BankAccount:
         print(f"{self.name}\nAccount No.: {self.account_number}\nRouting No.: {self.route_number}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
 
 class Bank:
-    def __init__(self, name, account_number=None, route_number=None, balance=0.0, account_type="checking"):
-        self.name = name
+    def __init__(self):
+        self.accounts = {}
+
+    def create_account(self, name, account_number=None, route_number=None, balance=0, account_type="checking"):
         account = BankAccount(name, account_number, route_number, balance, account_type)
         self.accounts[account.account_number] = account
-        print(f"Account created for {name} with account number {account.account_number}.")
-        return account
+        print
+    
+    def deposit(self, account_number, amount):
+        account = self.accounts.get(account_number)
+        if account:
+            account.deposit(amount)
+        else:
+            print("Account not found.")
         
 
 
