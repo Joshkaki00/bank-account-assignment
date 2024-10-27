@@ -1,14 +1,11 @@
 import random
 
 class BankAccount:
-    def __init__(self, name, account_number, route_number, balance, account_type):
+    def __init__(self, name, account_number=None, route_number=None, balance=0, account_type="checking"):
         self.name = name
         self.balance = balance
-        if account_number:
-            self.account_number = str(account_number)
-        else:
-            self.account_number = str(random.randint(10000000, 99999999))
-        self.account_number = "*" * 4 + self.account_number[4:]
+        self.account_number = str(account_number) if account_number else str(random.randint(10000000, 99999999))
+        self.display_account_number = "*" * 4 + self.account_number[4:]
         self.account_type = account_type
         if account_type == "savings":
             self.interest_rate = 0.001
