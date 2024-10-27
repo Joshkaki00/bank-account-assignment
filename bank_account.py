@@ -20,7 +20,7 @@ class BankAccount:
         else:
             raise ValueError("Invalid account type. Please enter \"savings\" or \"checking\".")
         self.route_number = route_number
-        self.route_number = str(route_number)
+        self.route_number = str(route_number) if route_number else str(random.randint(10000000, 99999999))
         self.route_number = "0" * (9 - len(self.route_number)) + self.route_number
 
     
@@ -48,38 +48,14 @@ class BankAccount:
         print(f"{self.name}\nAccount No.: {self.account_number}\nRouting No.: {self.route_number}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
 
 
+def application():
+    bank = {}
 
-savings_account = BankAccount("John Augustus", 12345678, 987654325, 1000, "savings")
+    while True:
+        action = input("\nChoose an action: 'create account', 'statement', 'deposit', 'withdraw', or 'exit': ").strip().lower()
 
-savings_account.deposit(500)
-
-savings_account.print_statement()
-
-ken_checking_account = BankAccount("Ken Mizutani", None, 107846534, 2000, "checking")
-
-ken_checking_account.withdraw(2100)
-
-checking_account = BankAccount("Mitchell", "03141592", 345678919, 0, "checking")
-
-checking_account.deposit(400000)
-
-checking_account.print_statement()
-
-checking_account.add_interest()
-
-checking_account.print_statement()
-
-checking_account.withdraw(150)
-
-checking_account.print_statement()
-
-bank = [checking_account, savings_account, ken_checking_account]
-
-def apply_interest_to_all_accounts(bank):
-    for account in bank:
-        account.add_interest()
-
-apply_interest_to_all_accounts(bank)
-
-for account in bank:
-    account.print_statement()
+        if action == 'create account':
+            name = input("Enter account holder's name: ")
+            account_number = input("Enter account number (or press Enter to auto-generate): ").strip() or None
+            route_number = input("Enter routing number (or press Enter to auto-generate): ").strip() or None
+            
