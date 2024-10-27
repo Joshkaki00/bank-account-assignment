@@ -44,19 +44,19 @@ class BankAccount:
     def print_statement(self):
         print(f"{self.name}\nAccount No.: {self.account_number}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
 
-john_BankAccount = BankAccount("John Augustus", 12345678, 1000, "savings")
+john_BankAccount = BankAccount("John Augustus", 12345678, 98765432, 1000, "savings")
 
 john_BankAccount.print_statement()
 
-amy_BankAccount = BankAccount("Amy Brooke", 79598828, 1500, "checking")
+amy_BankAccount = BankAccount("Amy Brooke", 79598828, 12345678, 1500, "checking")
 
 amy_BankAccount.get_balance()
 
-james_BankAccount = BankAccount("James Mizutani", 60716208, 3400, "savings")
+james_BankAccount = BankAccount("James Mizutani", 60716208, 23456789, 3400, "savings")
 
 james_BankAccount.withdraw(3500)
 
-mitchell_BankAccount = BankAccount("Mitchell", "03141592", 0, "checking")
+mitchell_BankAccount = BankAccount("Mitchell", "03141592", 34567891, 0, "checking")
 
 mitchell_BankAccount.deposit(400000)
 
