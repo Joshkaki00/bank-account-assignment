@@ -36,3 +36,15 @@ class BankAccount:
 
 john_BankAccount = BankAccount("John", 12345678, 1000)
 
+john_BankAccount.deposit(500)
+
+john_BankAccount.withdraw(250)
+
+john_BankAccount.get_balance()
+
+john_BankAccount.add_interest()
+
+john_BankAccount.print_statement()
+
+amy_BankAccount = BankAccount
+
