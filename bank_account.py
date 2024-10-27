@@ -121,6 +121,12 @@ def application():
             amount = float(input("Enter amount to withdraw: "))
             bank.withdraw(account_number, amount)
 
+        elif action == 'transfer':
+            from_account = input("Enter account number to transfer from: ").strip()
+            to_account = input("Enter account number to transfer to: ").strip()
+            amount = float(input("Enter amount to transfer: "))
+            bank.transfer(from_account, to_account, amount)
+
         elif action == 'exit':
             print("Thank you for banking with us.")
             break
