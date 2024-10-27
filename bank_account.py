@@ -4,7 +4,6 @@ class BankAccount:
     def __init__(self, name, account_number, route_number, balance, account_type):
         self.name = name
         self.balance = balance
-        balance = 0
         if account_number:
             self.account_number = str(account_number)
         else:
