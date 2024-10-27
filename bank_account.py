@@ -18,7 +18,7 @@ class BankAccount:
             raise ValueError("Invalid account type. Please enter \"savings\" or \"checking\".")
         self.route_number = route_number
         self.route_number = str(route_number)
-        self.route_number = "0" * (9 - len(self.route_number)) + self.route_number
+        self.route_number = "0" * (8 - len(self.route_number)) + self.route_number
 
     def deposit(self, amount):
         self.balance += amount
