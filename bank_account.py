@@ -34,7 +34,7 @@ class BankAccount:
     def print_statement(self):
         print(f"{self.name}\nAccount No.: {self.account_number}\nBalance: ${self.balance:.2f}")
 
-john_BankAccount = BankAccount("John", 12345678, 1000)
+john_BankAccount = BankAccount("John Augustus", 12345678, 1000)
 
 john_BankAccount.deposit(500)
 
