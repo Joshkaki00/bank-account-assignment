@@ -49,3 +49,5 @@ mitchell_BankAccount = BankAccount("Mitchell", "03141592", 10000)
 
 mitchell_BankAccount.print_statement()
 
+mitchell_BankAccount.deposit(400000)
+
