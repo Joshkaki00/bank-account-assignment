@@ -55,9 +55,9 @@ savings_account.deposit(500)
 
 savings_account.print_statement()
 
-checking_account = BankAccount("Ken Mizutani", None, 107846534, 2000, "checking")
+ken_checking_account = BankAccount("Ken Mizutani", None, 107846534, 2000, "checking")
 
-checking_account.withdraw(2100)
+ken_checking_account.withdraw(2100)
 
 checking_account = BankAccount("Mitchell", "03141592", 345678919, 0, "checking")
 
@@ -73,7 +73,7 @@ checking_account.withdraw(150)
 
 checking_account.print_statement()
 
-bank = [checking_account, savings_account]
+bank = [checking_account, savings_account, ken_checking_account]
 
 def apply_interest_to_all_accounts(bank):
     for account in bank:
