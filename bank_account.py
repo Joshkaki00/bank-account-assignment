@@ -92,10 +92,10 @@ class Bank:
 
 
 def application():
-    bank = {}
+    bank = Bank()
 
     while True:
-        action = input("\nChoose an action: 'create account', 'statement', 'deposit', 'withdraw', or 'exit': ").strip().lower()
+        action = input("\nChoose an action: 'create account', 'statement', 'deposit', 'withdraw', 'transfer', or 'exit': ").strip().lower()
 
         if action == 'create account':
             name = input("Enter account holder's name: ")
@@ -104,34 +104,22 @@ def application():
             balance = float(input("Enter initial balance: "))
             account_type = input("Enter account type ('savings' or 'checking'): ").strip().lower()
 
-            new_account = BankAccount(name, account_number, route_number, balance, account_type)
-            bank[new_account.account_number] = new_account
-            print(f"Account created for {name} with account number {new_account.account_number}.")
+            bank.create_account(name, account_number, route_number, balance, account_type)
+
+
         elif action == 'statement':
             account_number = input("Enter account number: ").strip()
-            account = bank.get(account_number)
-            if account:
-                account.print_statement()
-            else:
-                print("Account not found.")
+            bank.statement(account_number)
 
         elif action == 'deposit':
             account_number = input("Enter account number: ").strip()
-            account = bank.get(account_number)
-            if account:
-                amount = float(input("Enter amount to deposit: "))
-                account.deposit(amount)
-            else:
-                print("Account not found.")
+            amount = float(input("Enter amount to deposit: "))
+            bank.deposit(account_number, amount)
 
         elif action == 'withdraw':
             account_number = input("Enter account number: ").strip()
-            account = bank.get(account_number)
-            if account:
-                amount = float(input("Enter amount to withdraw: "))
-                account.withdraw(amount)
-            else:
-                print("Account not found.")
+            amount = float(input("Enter amount to withdraw: "))
+            bank.withdraw(account_number, amount)
 
         elif action == 'exit':
             print("Thank you for banking with us.")
