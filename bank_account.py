@@ -98,7 +98,7 @@ def application():
     bank = Bank()
 
     while True:
-        action = input("\nChoose an action: 'create account', 'statement', 'deposit', 'withdraw', 'transfer', or 'exit': ").strip().lower()
+        action = input("\nChoose an action: 'create account', 'statement', 'deposit', 'withdraw', 'add interest', 'transfer', or 'exit': ").strip().lower()
 
         if action == 'create account':
             name = input("Enter account holder's name: ")
@@ -123,6 +123,10 @@ def application():
             account_number = input("Enter account number: ").strip()
             amount = float(input("Enter amount to withdraw: "))
             bank.withdraw(account_number, amount)
+
+        elif action == 'add interest':
+            account_number = input("Enter account number: ").strip()
+            bank.add_interest(account_number)
 
         elif action == 'transfer':
             from_account = input("Enter account number to transfer from: ").strip()
