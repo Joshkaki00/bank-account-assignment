@@ -3,7 +3,7 @@ import random
 from random import randint
 
 class BankAccount:
-    def __init__(self, name, account_number, balance, account_type):
+    def __init__(self, name, account_number, route_number, balance, account_type):
         self.name = name
         self.balance = balance
         balance = 0
@@ -16,7 +16,9 @@ class BankAccount:
             self.interest_rate = 0.00083
         else:
             raise ValueError("Invalid account type. Please enter \"savings\" or \"checking\".")
-        
+        self.route_number = route_number
+        self.route_number = str(route_number)
+        self.route_number = "0" * (9 - len(self.route_number)) + self.route_number
 
     def deposit(self, amount):
         self.balance += amount
