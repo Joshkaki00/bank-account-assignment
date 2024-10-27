@@ -9,7 +9,7 @@ class BankAccount:
         self.balance = balance
         balance = 0
         self.account_number = str(account_number)
-        self.account_number = self.account_number[:0] + "*" * 4 + self.account_number[4:]
+        account_number = self.account_number[:0] + "*" * 4 + self.account_number[4:]
 
     def deposit(self, amount):
         self.balance += amount
@@ -47,4 +47,6 @@ james_BankAccount = BankAccount("James Mizutani", 60716208, 3400)
 james_BankAccount.print_statement()
 
 mitchell_BankAccount = BankAccount("Mitchell", 03141592, 10000)
+
+mitchell_BankAccount.print_statement()
 
