@@ -8,7 +8,6 @@ class BankAccount:
         self.account_number = account_number
         self.balance = balance
         balance = 0
-        account_number = random.randint(00000000, 99999999)
 
     def deposit(self, amount):
         self.balance += amount
@@ -32,4 +31,6 @@ class BankAccount:
 
     def print_statement(self):
         print(f"{self.name}\nAccount No.: {self.account_number}\nBalance: ${self.balance:.2f}")
+
+john_BankAccount = BankAccount("John", )
 
