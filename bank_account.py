@@ -7,7 +7,11 @@ class BankAccount:
         self.name = name
         self.balance = balance
         balance = 0
-        self.account_number = str(account_number)
+        if account_number:
+            self.account_number = account_number
+        else:
+            self.account_number = str(random.randint(10000000, 99999999))
+        self.account_number = str(random.randint(10000000, 99999999))
         self.account_number = "*" * 4 + self.account_number[4:]
         self.account_type = account_type
         if account_type == "savings":
