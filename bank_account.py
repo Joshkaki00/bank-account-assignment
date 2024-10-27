@@ -12,8 +12,10 @@ class BankAccount:
         self.account_type = account_type
         if account_type == "savings":
             self.interest_rate = 0.001
-        if account_type == "checking":
+        elif account_type == "checking":
             self.interest_rate = 0.00083
+        else:
+            raise ValueError("Invalid account type. Please enter \"savings\" or \"checking\".")
 
     def deposit(self, amount):
         self.balance += amount
@@ -30,26 +32,28 @@ class BankAccount:
     def get_balance(self):
         print(f"Your current balance is : ${self.balance:.2f}")
 
-    def add_interest(self, rate=0.00083):
+    def add_interest(self, rate=None):
+        if rate is None:
+            rate = self.interest_rate
         interest = self.balance * rate
         self.balance += interest
 
     def print_statement(self):
         print(f"{self.name}\nAccount No.: {self.account_number}\nBalance: ${self.balance:.2f}")
 
-john_BankAccount = BankAccount("John Augustus", 12345678, 1000)
+john_BankAccount = BankAccount("John Augustus", 12345678, 1000, "savings")
 
 john_BankAccount.print_statement()
 
-amy_BankAccount = BankAccount("Amy Brooke", 79598828, 1500)
+amy_BankAccount = BankAccount("Amy Brooke", 79598828, 1500, "checking")
 
 amy_BankAccount.get_balance()
 
-james_BankAccount = BankAccount("James Mizutani", 60716208, 3400)
+james_BankAccount = BankAccount("James Mizutani", 60716208, 3400, "savings")
 
 james_BankAccount.withdraw(3500)
 
-mitchell_BankAccount = BankAccount("Mitchell", "03141592", 0)
+mitchell_BankAccount = BankAccount("Mitchell", "03141592", 0, "checking")
 
 mitchell_BankAccount.deposit(400000)
 
