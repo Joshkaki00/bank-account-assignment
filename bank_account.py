@@ -42,7 +42,7 @@ class BankAccount:
         self.balance += interest
 
     def print_statement(self):
-        print(f"{self.name}\nAccount No.: {self.account_number}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
+        print(f"{self.name}\nAccount No.: {self.account_number}\nRouting No.: {self.route_number}Balance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
 
 john_BankAccount = BankAccount("John Augustus", 12345678, 98765432, 1000, "savings")
 
