@@ -8,6 +8,8 @@ class BankAccount:
         self.account_number = account_number
         self.balance = balance
         balance = 0
+        self.account_number = str(account_number)
+        self.account_number = self.account_number[:5] + "*" * 3
 
     def deposit(self, amount):
         self.balance += amount
@@ -32,5 +34,5 @@ class BankAccount:
     def print_statement(self):
         print(f"{self.name}\nAccount No.: {self.account_number}\nBalance: ${self.balance:.2f}")
 
-john_BankAccount = BankAccount("John", )
+john_BankAccount = BankAccount("John", 12345678, 1000)
 
