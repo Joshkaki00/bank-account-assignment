@@ -48,7 +48,7 @@ class Bank:
     def create_account(self, name, account_number=None, route_number=None, balance=0, account_type="checking"):
         account = BankAccount(name, account_number, route_number, balance, account_type)
         self.accounts[account.account_number] = account
-        print(f"Account created for {name} with account number {account.account_number}.")
+        print(f"Account created for {name} with account number {account.display_account_number}.")
         return account
     
     def deposit(self, account_number, amount):
