@@ -3,12 +3,17 @@ import random
 from random import randint
 
 class BankAccount:
-    def __init__(self, name, account_number, balance):
+    def __init__(self, name, account_number, balance, account_type):
         self.name = name
         self.balance = balance
         balance = 0
         self.account_number = str(account_number)
         self.account_number = "*" * 4 + self.account_number[4:]
+        self.account_type = account_type
+        if account_type == "savings":
+            self.interest_rate = 0.001
+        if account_type == "checking":
+            self.interest_rate = 0.00083
 
     def deposit(self, amount):
         self.balance += amount
