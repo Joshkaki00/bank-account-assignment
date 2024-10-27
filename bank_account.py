@@ -54,6 +54,10 @@ mitchell_BankAccount.add_interest()
 
 mitchell_BankAccount.print_statement()
 
+mitchell_BankAccount.withdraw(150)
+
+mitchell_BankAccount.print_statement()
+
 
 
 
