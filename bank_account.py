@@ -9,7 +9,7 @@ class BankAccount:
         self.balance = balance
         balance = 0
         self.account_number = str(account_number)
-        self.account_number = self.account_number[:0] + "*" * 5 + self.account_number[4:]
+        self.account_number = self.account_number[:0] + "*" * 4 + self.account_number[4:]
 
     def deposit(self, amount):
         self.balance += amount
@@ -36,13 +36,13 @@ class BankAccount:
 
 john_BankAccount = BankAccount("John Augustus", 12345678, 1000)
 
-john_BankAccount.deposit(500)
-
-john_BankAccount.withdraw(250)
-
-john_BankAccount.get_balance()
-
 john_BankAccount.print_statement()
 
-# amy_BankAccount = BankAccount
+amy_BankAccount = BankAccount("Amy Brooke", 79598828, 1500)
+
+amy_BankAccount.print_statement()
+
+james_BankAccount = BankAccount("James Mizutani", 60716208, 3400)
+
+james_BankAccount.print_statement()
 
