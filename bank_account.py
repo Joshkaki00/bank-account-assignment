@@ -8,10 +8,9 @@ class BankAccount:
         self.balance = balance
         balance = 0
         if account_number:
-            self.account_number = account_number
+            self.account_number = str(account_number)
         else:
             self.account_number = str(random.randint(10000000, 99999999))
-        self.account_number = str(random.randint(10000000, 99999999))
         self.account_number = "*" * 4 + self.account_number[4:]
         self.account_type = account_type
         if account_type == "savings":
@@ -55,6 +54,8 @@ savings_account = BankAccount("John Augustus", 12345678, 98765432, 1000, "saving
 savings_account.deposit(500)
 
 savings_account.print_statement()
+
+checking_account = BankAccount("Ken Mizutani", None)
 
 checking_account = BankAccount("Mitchell", "03141592", 34567891, 0, "checking")
 
