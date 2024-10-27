@@ -36,9 +36,7 @@ class BankAccount:
         print(f"Your current balance is : ${self.balance:.2f}")
 
     def add_interest(self, rate=None):
-        if rate is None:
-            rate = self.interest_rate
-        interest = self.balance * rate
+        interest = self.balance * self.interest_rate
         self.balance += interest
 
     def print_statement(self):
