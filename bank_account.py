@@ -25,9 +25,8 @@ class BankAccount:
     def get_balance(self):
         print(f"Your current balance is : ${self.balance:.2f}")
 
-    def add_interest(self, rate):
+    def add_interest(self, rate=0.00083):
         interest = self.balance * rate
-        self.rate = 0.00083
         self.balance += interest
 
     def print_statement(self):
@@ -39,15 +38,20 @@ john_BankAccount.print_statement()
 
 amy_BankAccount = BankAccount("Amy Brooke", 79598828, 1500)
 
-amy_BankAccount.print_statement()
+amy_BankAccount.get_balance()
 
 james_BankAccount = BankAccount("James Mizutani", 60716208, 3400)
 
-james_BankAccount.print_statement()
+james_BankAccount.withdraw(3500)
 
 mitchell_BankAccount = BankAccount("Mitchell", "03141592", 10000)
-
+'''
 mitchell_BankAccount.print_statement()
 
 mitchell_BankAccount.deposit(400000)
+'''
+mitchell_BankAccount.print_statement()
+
+mitchell_BankAccount.add_interest(self.rate)
+
 
