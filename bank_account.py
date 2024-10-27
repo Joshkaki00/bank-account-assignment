@@ -54,7 +54,8 @@ class Bank:
     def create_account(self, name, account_number=None, route_number=None, balance=0, account_type="checking"):
         account = BankAccount(name, account_number, route_number, balance, account_type)
         self.accounts[account.account_number] = account
-        print
+        print(f"Account created for {name} with account number {account.account_number}.")
+        return account
     
     def deposit(self, account_number, amount):
         account = self.accounts.get(account_number)
@@ -62,7 +63,29 @@ class Bank:
             account.deposit(amount)
         else:
             print("Account not found.")
-        
+
+    def withdraw(self, account_number, amount):
+        account = self.accounts.get(account_number)
+        if account:
+            account.withdraw(amount)
+        else:
+            print("Account not found.")
+
+    def transfer(self, from_account_number, to_account_number, amount):
+        from_account = self.accounts.get(from_account_number)
+        to_account = self.accounts.get(to_account_number)
+
+        if from_account and to_account:
+            if from_account.balance >= amount:
+                from_account.withdraw(amount)
+                to_account.deposit(amount)
+                print(f"Transferred ${amount:.2f} from {from_account_number} to {to_account_number}." )
+            else:
+                print("Insufficient funds for transfer.")
+        else:
+            print("One or both accounts not found.")
+
+    def statement(self, account_number)
 
 
 def application():
