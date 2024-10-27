@@ -61,4 +61,40 @@ def application():
             balance = float(input("Enter initial balance:"))
             account_type = input("Enter account type ('savings' or 'checking'): ").strip().lower()
 
-            new
+            new_account = BankAccount(name, account_number, route_number, balance, account_type)
+            bank[new_account.account_number] = new_account
+            print(f"Account created for {name} with account number {new_account.account_number}.")
+        elif action == 'statement':
+            account_number = input("Enter account number: ").strip()
+            account = bank.get(account_number)
+            if account:
+                account.print_statement()
+            else:
+                print("Account not found.")
+
+        elif action == 'deposit':
+            account_number = input("Enter account number: ").strip()
+            account = bank.get(account_number)
+            if account:
+                amount = float(input("Enter amount to deposit: "))
+                account.deposit(amount)
+            else:
+                print("Account not found.")
+
+        elif action == 'withdraw':
+            account_number = input("Enter account number: ").strip()
+            account = bank.get(account_number)
+            if account:
+                amount = float(input("Enter amount to withdraw: "))
+                account.withdraw(amount)
+            else:
+                print("Account not found.")
+
+        elif action == 'exit':
+            print("Thank you for banking with us.")
+            break
+
+        else:
+            print("Invalid action. Please choose a valid action.")
+
+application()
