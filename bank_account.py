@@ -58,4 +58,7 @@ def application():
             name = input("Enter account holder's name: ")
             account_number = input("Enter account number (or press Enter to auto-generate): ").strip() or None
             route_number = input("Enter routing number (or press Enter to auto-generate): ").strip() or None
-            
+            balance = float(input("Enter initial balance:"))
+            account_type = input("Enter account type ('savings' or 'checking'): ").strip().lower()
+
+            new
