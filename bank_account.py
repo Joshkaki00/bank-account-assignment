@@ -9,7 +9,7 @@ class BankAccount:
         self.balance = balance
         balance = 0
         self.account_number = str(account_number)
-        self.account_number = self.account_number[:0] + "*" 5
+        self.account_number = self.account_number[:0] + "*" * 5 + self.account_number[3:]
 
     def deposit(self, amount):
         self.balance += amount
