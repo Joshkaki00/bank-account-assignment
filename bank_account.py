@@ -21,7 +21,7 @@ class BankAccount:
             raise ValueError("Invalid account type. Please enter \"savings\" or \"checking\".")
         self.route_number = route_number
         self.route_number = str(route_number)
-        self.route_number = "0" * (8 - len(self.route_number)) + self.route_number
+        self.route_number = "0" * (9 - len(self.route_number)) + self.route_number
 
     
 
@@ -49,17 +49,17 @@ class BankAccount:
 
 
 
-savings_account = BankAccount("John Augustus", 12345678, 98765432, 1000, "savings")
+savings_account = BankAccount("John Augustus", 12345678, 987654325, 1000, "savings")
 
 savings_account.deposit(500)
 
 savings_account.print_statement()
 
-checking_account = BankAccount("Ken Mizutani", None, 10784653, 2000, "checking")
+checking_account = BankAccount("Ken Mizutani", None, 107846534, 2000, "checking")
 
 checking_account.withdraw(2100)
 
-checking_account = BankAccount("Mitchell", "03141592", 34567891, 0, "checking")
+checking_account = BankAccount("Mitchell", "03141592", 345678919, 0, "checking")
 
 checking_account.deposit(400000)
 
