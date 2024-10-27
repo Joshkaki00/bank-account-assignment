@@ -55,7 +55,9 @@ savings_account.deposit(500)
 
 savings_account.print_statement()
 
-checking_account = BankAccount("Ken Mizutani", None)
+checking_account = BankAccount("Ken Mizutani", None, 10784653, 2000, "checking")
+
+checking_account.withdraw(2100)
 
 checking_account = BankAccount("Mitchell", "03141592", 34567891, 0, "checking")
 
