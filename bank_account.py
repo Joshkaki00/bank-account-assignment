@@ -65,6 +65,13 @@ class Bank:
         else:
             print("Account not found.")
 
+    def add_interest(self, account_number):
+        account = self.accounts.get(account_number)
+        if account:
+            account.add_interest()
+        else:
+            print("Account not found.")
+
     def transfer(self, from_account_number, to_account_number, amount):
         from_account = self.accounts.get(from_account_number)
         to_account = self.accounts.get(to_account_number)
