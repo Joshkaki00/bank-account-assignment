@@ -44,7 +44,7 @@ james_BankAccount = BankAccount("James Mizutani", 60716208, 3400)
 
 james_BankAccount.withdraw(3500)
 
-mitchell_BankAccount = BankAccount("Mitchell", "03141592", 10000)
+mitchell_BankAccount = BankAccount("Mitchell", "03141592", 0)
 
 mitchell_BankAccount.deposit(400000)
 
