@@ -21,7 +21,7 @@ class BankAccount:
 
     def deposit(self, amount):
         self.balance += amount
-        print(f"Amount deposited: ${amount:.2f} new balance: ${self.balance:.2f}")
+        print(f"Amount deposited: ${amount:.2f}. New balance: ${self.balance:.2f}")
 
     def withdraw(self, amount):
         if amount > self.balance:
@@ -29,7 +29,7 @@ class BankAccount:
             self.balance -= 10
         else:
             self.balance -= amount
-            print(f"Amount withdrawn: ${amount:.2f} new balance: ${self.balance:.2f}")
+            print(f"Amount withdrawn: ${amount:.2f}. New balance: ${self.balance:.2f}")
 
     def get_balance(self):
         print(f"Your current balance is : ${self.balance:.2f}")
@@ -69,18 +69,25 @@ class Bank:
         account = self.accounts.get(account_number)
         if account:
             account.add_interest()
+            print(f"Interest added to account {account.display_account_number}. New balance: ${account.balance:.2f}")
+        else:
+            print("Account not found.")
+
+    def get_balance(self, account_number):
+        account = self.accounts.get(account_number)
+        if account:
+            account.get_balance()
         else:
             print("Account not found.")
 
     def transfer(self, from_account_number, to_account_number, amount):
         from_account = self.accounts.get(from_account_number)
         to_account = self.accounts.get(to_account_number)
-
         if from_account and to_account:
             if from_account.balance >= amount:
                 from_account.withdraw(amount)
                 to_account.deposit(amount)
-                print(f"Transferred ${amount:.2f} from {from_account_number} to {to_account_number}." )
+                print(f"Transferred ${amount:.2f} from {from_account_number} to {to_account_number}.")
             else:
                 print("Insufficient funds for transfer.")
         else:
@@ -98,13 +105,13 @@ def application():
     bank = Bank()
 
     while True:
-        action = input("\nChoose an action: 'create account', 'statement', 'deposit', 'withdraw', 'add interest', 'transfer', or 'exit': ").strip().lower()
+        action = input("\nChoose an action: 'create account', 'statement', 'deposit', 'withdraw', 'add interest', 'get balance', 'transfer', or 'exit': ").strip().lower()
 
         if action == 'create account':
             name = input("Enter account holder's name: ")
             account_number = input("Enter account number (or press Enter to auto-generate): ").strip() or None
             route_number = input("Enter routing number (or press Enter to auto-generate): ").strip() or None
-            balance = float(input("Enter initial balance: "))
+            balance = float(input("Enter initial balance (numbers only, no currency symbol): "))
             account_type = input("Enter account type ('savings' or 'checking'): ").strip().lower()
 
             bank.create_account(name, account_number, route_number, balance, account_type)
@@ -116,22 +123,26 @@ def application():
 
         elif action == 'deposit':
             account_number = input("Enter account number: ").strip()
-            amount = float(input("Enter amount to deposit: "))
+            amount = float(input("Enter amount to deposit (numbers only, no currency symbol): "))
             bank.deposit(account_number, amount)
 
         elif action == 'withdraw':
             account_number = input("Enter account number: ").strip()
-            amount = float(input("Enter amount to withdraw: "))
+            amount = float(input("Enter amount to withdraw (numbers only, no currency symbol): "))
             bank.withdraw(account_number, amount)
 
         elif action == 'add interest':
             account_number = input("Enter account number: ").strip()
             bank.add_interest(account_number)
 
+        elif action == 'get balance':
+            account_number = input("Enter account number: ").strip()
+            bank.get_balance(account_number)
+
         elif action == 'transfer':
             from_account = input("Enter account number to transfer from: ").strip()
             to_account = input("Enter account number to transfer to: ").strip()
-            amount = float(input("Enter amount to transfer: "))
+            amount = float(input("Enter amount to transfer (numbers only, no currency symbol): "))
             bank.transfer(from_account, to_account, amount)
 
         elif action == 'exit':
