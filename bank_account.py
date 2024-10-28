@@ -3,8 +3,8 @@ import random
 # This is class BankAccount
 
 class BankAccount:
-    def __init__(self, name, account_number=None, route_number=None, balance=0, account_type="checking"):
-        self.name = name
+    def __init__(self, full_name, account_number=None, route_number=None, balance=0, account_type="checking"):
+        self.full_name = full_name
         self.balance = balance
         self.account_number = str(account_number) if account_number else str(random.randint(10000000, 99999999))
         self.display_account_number = "*" * 4 + self.account_number[4:]
@@ -41,7 +41,7 @@ class BankAccount:
         self.balance += interest
 
     def print_statement(self):
-        print(f"{self.name}\nAccount No.: {self.display_account_number}\nRouting No.: {self.route_number}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
+        print(f"{self.full_name}\nAccount No.: {self.display_account_number}\nRouting No.: {self.route_number}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
 
 # Function called Bank that takes accounts and stores them
 
