@@ -1,5 +1,7 @@
 import random
 
+# This is class BankAccount
+
 class BankAccount:
     def __init__(self, name, account_number=None, route_number=None, balance=0, account_type="checking"):
         self.name = name
@@ -17,7 +19,7 @@ class BankAccount:
         self.route_number = str(route_number) if route_number else str(random.randint(10000000, 99999999))
         self.route_number = "0" * (9 - len(self.route_number)) + self.route_number
 
-    
+# These are the methods for BankAccount
 
     def deposit(self, amount):
         self.balance += amount
@@ -40,6 +42,8 @@ class BankAccount:
 
     def print_statement(self):
         print(f"{self.name}\nAccount No.: {self.display_account_number}\nRouting No.: {self.route_number}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type.capitalize()}")
+
+# Function called Bank that takes accounts and stores them
 
 class Bank:
     def __init__(self):
@@ -100,6 +104,7 @@ class Bank:
         else:
             print("Account not found.")
 
+# Function called application that runs the program and UI
 
 def application():
     bank = Bank()
